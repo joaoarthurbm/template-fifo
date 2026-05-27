@@ -16,7 +16,7 @@ public class Fila {
         return false;
     }
 
-    // deve lançar exceção caso a fila esteja cheia.
+    // deve sobrescrever o início da fila caso a fila esteja cheia.
     public void addLast(int valor) {
         // TODO
     }
