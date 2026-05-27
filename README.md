@@ -4,7 +4,7 @@
 * Email (@ccc): 
 * Matrícula: 
 
-# Roteiro: Implementação de Pilha e Fila baseadas em Array
+# Roteiro: Implementação de Fila baseada em Array
 
 ## Material Teórico 
 
@@ -32,19 +32,20 @@
 
 ## Introdução
 
-Este roteiro envolve a implementação das principais operações de pilha.
+Este roteiro envolve a implementação das principais operações de fila.
 
 ## A tarefa. 
 
 ### Implementação e testes
 
+**Fila.** Implemente os métodos da classe Fila. A explicação do que fazer está como comentário no código. Seu objetivo é passar nos testes que disponibilizei.
 
-**Pilha e Fila.** Implemente os métodos da classe Pilha e Fila. A explicação do que fazer está como comentário no código. Seu objetivo é passar nos testes que disponibilizei.
+A fila é de tamanho fixo. Quando a fila estiver cheia e um novo elemento for adicionado, o elemento que deve sair é o que está no início da fila.
 
 ### Restrições
 
-    - Usar outra pilha auxiliar quando precisar. Não pode criar array ou iterar sobre o array.
-    - A fila circular é de tamanho fixo e não deve sobrescrever ninguém. Quando chegar no limite da ocupação, lança exceção, como está descrito no método.
+    - A fila é de tamanho fixo.
+    - Quando a fila estiver cheia e houver uma nova adição, o elemento removido deve ser o que está no início da fila.
 
 Ah...confira (sempre!) se você passa nos testes: `gradle test`.
 
@@ -60,7 +61,7 @@ Implemente as seguintes questões no tst-eda:
  
 ## Entregando o lab
 
-> Passo 0. Modifique o arquivo README. Coloque seu nome, email @ccc e matrícula nos lugares indicados. Se você não fizer isso, não considero que sua prova foi assinada e, portanto, não vou corrigir. Não mude a formatação da linha. Apenas inclua seus dados.
+> Passo 0. Modifique o arquivo README. Coloque seu nome, email @ccc e matrícula nos lugares indicados. Se você não fizer isso, não considero que sua prova foi assinada e, portanto, não vou corrigir.
 
 > Passo 1. Certifique-se **NO TERMINAL** de que sua solução compila e passa nos testes. Isso deve ser feito com os comandos do gradle (compileJava e test).
 
