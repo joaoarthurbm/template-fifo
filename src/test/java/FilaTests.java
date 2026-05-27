@@ -40,15 +40,11 @@ public class FilaTests {
         assertEquals(50, fila.getLast());
         assertEquals(5, fila.size());
 
-        try {
-            fila.addLast(60);
-            fail("Esta linha não pode ser executada.");
-        } catch (Exception e) {}
-
+        fila.addLast(60);
         assertFalse(fila.isEmpty());
         assertTrue(fila.isFull());
-        assertEquals(10, fila.getFirst());
-        assertEquals(50, fila.getLast());
+        assertEquals(20, fila.getFirst());
+        assertEquals(60, fila.getLast());
         assertEquals(5, fila.size());
     }
 
@@ -72,15 +68,16 @@ public class FilaTests {
         assertEquals(10, fila.getFirst());
         assertEquals(5, fila.size());
 
-        try {
-            fila.addLast(500);
-            fail("esta linha não pode ser executada");
-        } catch (Exception e) {}
-
+        fila.addLast(500);
+        assertTrue(fila.isFull());
+        assertEquals(20, fila.getFirst());
+        assertEquals(500, fila.getLast());
+        assertEquals(5, fila.size());
 
         fila.removeFirst();
         fila.addLast(60);
-        // 20, 30, 40, 50, 60
+        // 30, 40, 50, 500, 60
+        assertEquals(30, fila.getFirst());
         assertEquals(60, fila.getLast());
         assertEquals(5, fila.size());
 
@@ -88,9 +85,10 @@ public class FilaTests {
         fila.removeFirst();
         fila.removeFirst();
         
-        // 50, 60
+        // 500, 60
         assertFalse(fila.isFull());
         assertEquals(2, fila.size());
+        assertEquals(500, fila.getFirst());
         fila.removeFirst();
         fila.removeFirst();
         
@@ -121,6 +119,8 @@ public class FilaTests {
         fila.addLast(40);
         fila.addLast(50);
         assertEquals("20, 30, 30, 40, 50", fila.toString());
+        fila.addLast(60);
+        assertEquals("30, 30, 40, 50, 60", fila.toString());
         
     }	
 
@@ -137,6 +137,13 @@ public class FilaTests {
         fila.addLast(30);
         fila.addLast(10);
         assertEquals(0, fila.indexOf(10));
+        fila.addLast(40);
+        fila.addLast(50);
+        assertEquals(4, fila.indexOf(50));
+        fila.addLast(60);
+        assertEquals(-1, fila.indexOf(20));
+        assertEquals(0, fila.indexOf(30));
+        assertEquals(4, fila.indexOf(60));
     }
 
 
@@ -158,5 +165,10 @@ public class FilaTests {
         assertEquals(1, fila.lastIndexOf(30));
 
         assertEquals(3, fila.indexOf(50));
+        assertEquals(4, fila.lastIndexOf(50));
+
+        fila.addLast(60);
+        assertEquals(-1, fila.lastIndexOf(20));
+        assertEquals(4, fila.lastIndexOf(60));
     }
 }
